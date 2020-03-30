@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
+import { HeroDetailComponent } from '../hero-detail/hero-detail.component';
 
 @Component({
   selector: 'app-heroes',
@@ -9,7 +10,6 @@ import { HeroService } from '../hero.service';
   styleUrls: ['./heroes.component.css']
 })
 export class HeroesComponent implements OnInit {
-
   heroes: Hero[];
 
   constructor(private heroService: HeroService) {
@@ -23,12 +23,12 @@ export class HeroesComponent implements OnInit {
       .subscribe(heroes => this.heroes = heroes);
   }
 
-  add(name: string): void {
+  add(name: string, points: number): void {
     name = name.trim();
     if (!name) { return; }
-    this.heroService.addHero({ name } as Hero)
-      .subscribe(hero => {
+    this.heroService.addHero({ name, points } as Hero).subscribe(hero => {
         this.heroes.push(hero);
+        this.heroes.sort((a, b) => (a.points < b.points ? 1 : -1));
       });
   }
 
