@@ -1,4 +1,4 @@
-import { Hero } from './hero';
+/*import { Hero } from './hero';
 
 export const HEROES: Hero[] = [
   { id: 11, name: 'Mr. Nice', points: 32 },
@@ -12,3 +12,4 @@ export const HEROES: Hero[] = [
   { id: 19, name: 'Magma', points: 77 },
   { id: 20, name: 'Tornado', points: 71 }
 ].sort((a, b) => (a.points < b.points ? 1 : -1));
+*/
